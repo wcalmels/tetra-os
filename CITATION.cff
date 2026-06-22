@@ -1,15 +1,15 @@
 ﻿cff-version: 1.2.0
-message: 'If you use TETRA OS in your research, please cite it.'
+message: "If you use TETRA OS in your research, please cite it as below."
 type: software
-title: 'TETRA OS: A Self-Improving Multi-Level Optimization and Discovery System'
+title: "TETRA OS: A Self-Improving Multi-Level Optimization and Discovery System"
 version: 1.0.0
-date-released: '2026-06-22'
+date-released: "2026-06-22"
 license: MIT
-repository-code: 'https://github.com/waltercalmelsk/tetra-os'
+repository-code: "https://github.com/wcalmels/tetra-os"
+url: "https://github.com/wcalmels/tetra-os"
 authors:
-  - family-names: 'Calmels K.'
-    given-names: 'Walter'
-    email: 'walter.calmels@example.com'
+  - family-names: Calmels
+    given-names: Walter
 keywords:
   - meta-learning
   - optimization
@@ -17,3 +17,12 @@ keywords:
   - drug-discovery
   - materials-science
   - python
+  - self-improving-systems
+preferred-citation:
+  type: article
+  title: "TETRA OS: A Self-Improving Multi-Level Optimization and Discovery System with Meta-Meta-Learning Capabilities"
+  authors:
+    - family-names: Calmels
+      given-names: Walter
+  year: 2024
+  url: "https://github.com/wcalmels/tetra-os"

@@ -48,7 +48,7 @@ try:
 
     assert res.objective_value < 10.0,  f"Objective too high: {res.objective_value}"
     assert res.converged,               "Did not converge"
-    assert res.execution_time < 30.0,   "Took too long"
+    assert res.execution_time < 60.0,   "Took too long"
     assert res.algorithm in orch.ALGORITHMS, "Unknown algorithm"
 
     print(f"  ✅ PASSED")

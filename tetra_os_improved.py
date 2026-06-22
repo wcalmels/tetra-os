@@ -134,6 +134,8 @@ class GradientDescentOptimizer:
         best_x, best_f = x.copy(), objective(x)
         history = [best_f]
 
+        obj_tol = kw.get("objective_tolerance", 1e-3)
+        stopped_early = False
         for i in range(max_iter):
             # Numerical gradient
             grad = np.array([
@@ -148,11 +150,12 @@ class GradientDescentOptimizer:
                 best_f, best_x = f, x.copy()
             history.append(best_f)
             if i > 10 and abs(history[-1] - history[-10]) < tol:
+                stopped_early = True
                 break
 
         return OptimizationResult(
             solution=best_x, objective_value=best_f,
-            iterations=i + 1, converged=i < max_iter - 1,
+            iterations=i + 1, converged=stopped_early or best_f < obj_tol,
             execution_time=time.time() - t0, algorithm=self.name,
             metadata={"history": history[-100:], "final_lr": lr},
         )
@@ -175,6 +178,8 @@ class GeneticAlgorithmOptimizer:
         best_x, best_f = pop[best_idx].copy(), fitness[best_idx]
         history = [best_f]
 
+        obj_tol = kw.get("objective_tolerance", 1e-3)
+        stopped_early = False
         for gen in range(max_iter):
             elite_idx = np.argsort(fitness)[:n_elite]
             new_pop   = [pop[i].copy() for i in elite_idx]
@@ -201,11 +206,12 @@ class GeneticAlgorithmOptimizer:
                 best_f, best_x = fitness[idx], pop[idx].copy()
             history.append(best_f)
             if gen > 50 and abs(history[-1] - history[-50]) < 1e-6:
+                stopped_early = True
                 break
 
         return OptimizationResult(
             solution=best_x, objective_value=best_f,
-            iterations=gen + 1, converged=gen < max_iter - 1,
+            iterations=gen + 1, converged=stopped_early or best_f < obj_tol,
             execution_time=time.time() - t0, algorithm=self.name,
             metadata={"history": history[-100:],
                       "diversity": float(np.std(fitness))},
@@ -237,6 +243,8 @@ class ParticleSwarmOptimizer:
         gf   = float(pf[gi])
         history = [gf]
 
+        obj_tol = kw.get("objective_tolerance", 1e-3)
+        stopped_early = False
         for i in range(max_iter):
             r1 = np.random.rand(n, dim)
             r2 = np.random.rand(n, dim)
@@ -251,11 +259,12 @@ class ParticleSwarmOptimizer:
                 gf, gb = float(fits[idx]), pos[idx].copy()
             history.append(gf)
             if i > 20 and abs(history[-1] - history[-20]) < tol:
+                stopped_early = True
                 break
 
         return OptimizationResult(
             solution=gb, objective_value=gf,
-            iterations=i + 1, converged=i < max_iter - 1,
+            iterations=i + 1, converged=stopped_early or gf < obj_tol,
             execution_time=time.time() - t0, algorithm=self.name,
             metadata={"history": history[-100:],
                       "swarm_diversity": float(np.mean(np.std(pos, axis=0)))},
@@ -322,6 +331,8 @@ class DifferentialEvolutionOptimizer:
         best_f  = float(fitness[best_idx])
         history = [best_f]
 
+        obj_tol = kw.get("objective_tolerance", 1e-3)
+        stopped_early = False
         for gen in range(max_iter):
             for i in range(pop_size):
                 others = [j for j in range(pop_size) if j != i]
@@ -338,11 +349,12 @@ class DifferentialEvolutionOptimizer:
                         best_f, best_x = tf, trial.copy()
             history.append(best_f)
             if gen > 30 and abs(history[-1] - history[-30]) < tol:
+                stopped_early = True
                 break
 
         return OptimizationResult(
             solution=best_x, objective_value=best_f,
-            iterations=gen + 1, converged=gen < max_iter - 1,
+            iterations=gen + 1, converged=stopped_early or best_f < obj_tol,
             execution_time=time.time() - t0, algorithm=self.name,
             metadata={"history": history[-100:],
                       "population_diversity": float(np.std(fitness))},

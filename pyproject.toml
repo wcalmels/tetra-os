@@ -1,14 +1,60 @@
 ﻿[build-system]
-requires = ['setuptools>=61', 'wheel']
-build-backend = 'setuptools.backends.legacy:build'
+requires = ["setuptools>=61", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "tetra-os"
+version = "1.0.0"
+description = "Self-improving multi-level optimization and scientific discovery system"
+readme = "README.md"
+license = "MIT"
+authors = [{ name = "Walter Calmels" }]
+requires-python = ">=3.10"
+keywords = [
+  "meta-learning",
+  "optimization",
+  "scientific-discovery",
+  "drug-discovery",
+  "materials-science",
+]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Science/Research",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+  "numpy>=1.19.0",
+  "matplotlib>=3.3.0",
+  "pandas>=1.2.0",
+  "flask>=2.0.0",
+  "flask-cors>=3.0.0",
+  "requests>=2.25.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/wcalmels/tetra-os"
+Repository = "https://github.com/wcalmels/tetra-os"
+Issues = "https://github.com/wcalmels/tetra-os/issues"
+Changelog = "https://github.com/wcalmels/tetra-os/blob/main/CHANGELOG.md"
+
+[project.scripts]
+tetra = "tetra_os.__main__:main"
+
+[tool.setuptools.packages.find]
+include = ["tetra_os*"]
 
 [tool.black]
 line-length = 88
-target-version = ['py38', 'py39', 'py310', 'py311']
+target-version = ["py310", "py311", "py312"]
 
 [tool.isort]
-profile = 'black'
+profile = "black"
 
 [tool.pytest.ini_options]
-testpaths = ['tests']
-addopts = '--cov=tetra_os --cov-report=term-missing'
+testpaths = ["tests"]
+addopts = "--cov=tetra_os --cov-report=term-missing"

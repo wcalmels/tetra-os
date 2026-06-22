@@ -19,6 +19,6 @@ experiment_results/
 Thumbs.db
 .coverage
 htmlcov/
-.pytest_cache/
+test_results/
 *.tar.gz
 *.whl

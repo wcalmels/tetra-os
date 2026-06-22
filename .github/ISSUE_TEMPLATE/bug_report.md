@@ -1,18 +1,37 @@
 ﻿---
 name: Bug report
-about: Something is not working
+about: Report something that is not working
+title: "[Bug]: "
 labels: bug
+assignees: ''
 ---
-**Describe the bug**
 
-**To reproduce**
-`python
-# Minimal example
-`
+## Describe the bug
 
-**Expected behavior**
+A clear description of what went wrong.
 
-**Environment**
+## To reproduce
+
+```bash
+# Minimal steps
+python tetra_first_test.py
+```
+
+## Expected behavior
+
+What you expected to happen.
+
+## Actual behavior
+
+What actually happened (include error messages).
+
+## Environment
+
 - OS:
-- Python:
-- TETRA OS version:
+- Python version:
+- TETRA OS version / commit:
+- NumPy version:
+
+## Additional context
+
+Logs, screenshots, or relevant configuration.
