@@ -1,0 +1,1 @@
+﻿# Cross-domain pattern detector

@@ -1,0 +1,12 @@
+﻿version: '3.9'
+services:
+  tetra-os:
+    build: ..
+    container_name: tetra-os
+    ports:
+      - '8080:8080'
+    volumes:
+      - ../tetra_data:/app/tetra_data
+    environment:
+      - TETRA_ENV=production
+    restart: unless-stopped
