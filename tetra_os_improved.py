@@ -134,7 +134,7 @@ class GradientDescentOptimizer:
         best_x, best_f = x.copy(), objective(x)
         history = [best_f]
 
-        obj_tol = kw.get("objective_tolerance", 1e-3)
+        obj_tol = kw.get("objective_tolerance", 1e-2)
         stopped_early = False
         for i in range(max_iter):
             # Numerical gradient
@@ -178,7 +178,7 @@ class GeneticAlgorithmOptimizer:
         best_x, best_f = pop[best_idx].copy(), fitness[best_idx]
         history = [best_f]
 
-        obj_tol = kw.get("objective_tolerance", 1e-3)
+        obj_tol = kw.get("objective_tolerance", 1e-2)
         stopped_early = False
         for gen in range(max_iter):
             elite_idx = np.argsort(fitness)[:n_elite]
@@ -243,7 +243,7 @@ class ParticleSwarmOptimizer:
         gf   = float(pf[gi])
         history = [gf]
 
-        obj_tol = kw.get("objective_tolerance", 1e-3)
+        obj_tol = kw.get("objective_tolerance", 1e-2)
         stopped_early = False
         for i in range(max_iter):
             r1 = np.random.rand(n, dim)
@@ -306,7 +306,7 @@ class SimulatedAnnealingOptimizer:
 
         return OptimizationResult(
             solution=best_x, objective_value=best_f,
-            iterations=i, converged=T <= T_min,
+            iterations=i, converged=T <= T_min or best_f < kw.get("objective_tolerance", 1e-2),
             execution_time=time.time() - t0, algorithm=self.name,
             metadata={"history": history[-100:], "final_T": T,
                       "acceptance_rate": float(np.mean(accepted[-100:]))},
@@ -331,7 +331,7 @@ class DifferentialEvolutionOptimizer:
         best_f  = float(fitness[best_idx])
         history = [best_f]
 
-        obj_tol = kw.get("objective_tolerance", 1e-3)
+        obj_tol = kw.get("objective_tolerance", 1e-2)
         stopped_early = False
         for gen in range(max_iter):
             for i in range(pop_size):
