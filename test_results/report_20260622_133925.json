@@ -1,0 +1,52 @@
+{
+  "timestamp": "20260622_133925",
+  "summary": {
+    "total": 7,
+    "passed": 7,
+    "failed": 0,
+    "success_rate": 1.0
+  },
+  "tests": {
+    "test1": {
+      "status": "PASSED",
+      "objective": 3.602520220013496e-08,
+      "algorithm": "ParticleSwarm",
+      "time": 0.13360047340393066
+    },
+    "test2": {
+      "status": "PASSED",
+      "best_score": 0.8448265002105453,
+      "time": 0.002850770950317383
+    },
+    "test3": {
+      "status": "PASSED",
+      "score": 0.9462291666666667,
+      "time": 0.02460336685180664
+    },
+    "test4": {
+      "status": "PASSED",
+      "capacity_mw": 497.3,
+      "renewable": 0.624,
+      "time": 0.001561880111694336
+    },
+    "test5": {
+      "status": "PASSED",
+      "n_laws": 1,
+      "confidence": 0.9949366802608901,
+      "time": 0.005986213684082031
+    },
+    "test6": {
+      "status": "PASSED",
+      "algorithm": "Greedy-Enhanced Greedy Algorithm",
+      "confidence": 0.8487164203660292,
+      "time": 0.00026106834411621094
+    },
+    "test7": {
+      "status": "PASSED",
+      "laws": 6,
+      "algorithms": 4,
+      "patterns": 7,
+      "time": 0.05140328407287598
+    }
+  }
+}
