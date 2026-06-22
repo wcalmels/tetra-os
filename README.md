@@ -4,14 +4,14 @@
 
 ### Self-Improving Multi-Level Optimization & Scientific Discovery System
 
-*Discover laws. Design molecules. Optimize energy. Improve itself — three orders of meta-learning in one framework.*
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20804703.svg)](https://doi.org/10.5281/zenodo.20804703)
+
 
 # TETRA OS
 
 TETRA OS is a self-improving multi-level optimization and scientific discovery system with meta-meta-learning capabilities.
 <br/>
-
+*Discover laws. Design molecules. Optimize energy. Improve itself — three orders of meta-learning in one framework.*
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20804703.svg)](https://doi.org/10.5281/zenodo.20804703)
 [![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?style=flat-square&logo=python&logoColor=white)](https://www.python.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-22c55e?style=flat-square)](LICENSE)
 [![CI](https://github.com/wcalmels/tetra-os/actions/workflows/ci.yml/badge.svg)](https://github.com/wcalmels/tetra-os/actions/workflows/ci.yml)
