@@ -17,6 +17,10 @@
 
 <br/>
 
+![TETRA OS Demo](assets/demo.gif)
+
+<br/>
+
 **[Quick Start](#-quick-start)** · **[Architecture](#-architecture)** · **[Modules](#-modules)** · **[Results](#-results)** · **[Paper & Citation](#-paper--citation)**
 
 <br/>

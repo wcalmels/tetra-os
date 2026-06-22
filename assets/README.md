@@ -6,7 +6,7 @@ Place visual assets here to maximize GitHub visibility:
 |------|------------------|---------|
 | `logo.png` | 512×512 | README header, package icon |
 | `architecture.png` | 1200×630 | Architecture diagram |
-| `demo.gif` | ≤ 5 MB | Animated demo for README |
+| `demo.gif` | 960×540, ≤ 5 MB | Animated demo for README (regenerate: `python assets/generate_demo_gif.py`) |
 | `social_preview.png` | **1280×640** | GitHub social preview (Settings → General) |
 
 ## Social preview setup
