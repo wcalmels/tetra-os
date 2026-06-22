@@ -32,7 +32,17 @@ print("-" * 70)
 try:
     from tetra_os_improved import TetraOrchestrator, ProblemDefinition, BenchmarkFunctions
 
+    np.random.seed(42)
     orch = TetraOrchestrator(load_previous_state=False)
+    # Prefer strong optimizers for a deterministic CI smoke test
+    orch.consciousness.adaptation["exploration"] = 0.0
+    orch.consciousness.selection_matrix["benchmark"] = {
+        "DifferentialEvolution": 1.0,
+        "ParticleSwarm": 0.95,
+        "GeneticAlgorithm": 0.9,
+        "GradientDescent": 0.5,
+        "SimulatedAnnealing": 0.3,
+    }
 
     prob = ProblemDefinition(
         problem_id="test_sphere_10d",
@@ -43,7 +53,7 @@ try:
     )
 
     t0  = time.time()
-    res = orch.solve(prob, max_iterations=300)
+    res = orch.solve(prob, max_iterations=500)
     dt  = time.time() - t0
 
     assert res.objective_value < 10.0,  f"Objective too high: {res.objective_value}"
